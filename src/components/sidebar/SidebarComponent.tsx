@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { ChannelsComponent } from './channels/ChannelsComponent'
 import { DirectMessage } from 'components/messages/DirectMessage'
+import SideBarButtonComponent from './account/SideBarButtonContainer'
 
 export function SidebarComponent() {
   return (
@@ -17,11 +18,14 @@ export function SidebarComponent() {
       </UsernameContainer>
       <ChannelsComponent></ChannelsComponent>
       <DirectMessage></DirectMessage>
+      <SideBarButtonComponent></SideBarButtonComponent>
     </SidebarContainer>
   )
 }
 
 const SidebarContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   height: 100%;
   background: rebeccapurple;
   padding: 1rem;
