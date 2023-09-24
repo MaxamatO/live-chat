@@ -1,127 +1,48 @@
 import styled from 'styled-components'
+import { Message } from 'interfaces/Message'
 
-export function MessageBox() {
-  const messages = [
+interface Props {
+  messageHistory: Message[]
+}
+
+export function MessageBox({ messageHistory }: Props) {
+  const messages: Message[] = [
     {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'Stream quantifying Vermont',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'madfaklat',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'madfaklat',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'madfaklat',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'madfaklat',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'madfaklat',
-      user: 'Leonel',
-      date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
-    },
-    {
-      message: 'madfaklat',
-      user: 'Leonel',
+      message: 'No messages',
+      user: { username: 'No username' },
       date: 'Sat Sep 23 2023 12:25:32 GMT+0200 (Central European Summer Time)',
     },
   ]
+
   return (
     <Container>
-      <ul>
-        {messages.map((message, idx) => (
-          <li key={idx}>
-            <Username>{message.user} </Username>
+      {messageHistory.length > 0 ? (
+        <ul>
+          {messageHistory.map((message, idx) => (
+            <li key={idx}>
+              <Username>{message.user.username}</Username>
 
-            <DateSpan>
-              {new Intl.DateTimeFormat('en-PL').format(new Date(message.date))}
-            </DateSpan>
-            <p>{message.message}</p>
-          </li>
-        ))}
-      </ul>
+              <DateSpan>{message.date}</DateSpan>
+              <p>{message.message}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <ul>
+          {messages.map((message, idx) => (
+            <li key={idx}>
+              <Username>{message.user.username} </Username>
+
+              <DateSpan>
+                {new Intl.DateTimeFormat('en-PL').format(
+                  new Date(message.date)
+                )}
+              </DateSpan>
+              <p>{message.message}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </Container>
   )
 }
