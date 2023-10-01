@@ -5,12 +5,14 @@ interface Props {
   message: Message
   onSend: () => void
   onChange: (e: any) => void
+  value: string
 }
 
-export function InputMessage({ message, onSend, onChange }: Props) {
+export function InputMessage({ message, onSend, onChange, value }: Props) {
   return (
     <InputContainer>
       <InputStyle
+        value={value}
         onChange={(e) => onChange(e)}
         placeholder="Message John Doe"
       />
