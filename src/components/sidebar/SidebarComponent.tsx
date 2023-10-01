@@ -14,7 +14,7 @@ export function SidebarComponent() {
       </div>
       <UsernameContainer>
         <Status></Status>
-        John Doe Lorem ipsum dolor sit amet.
+        Leon
       </UsernameContainer>
       <ChannelsComponent></ChannelsComponent>
       <DirectMessage></DirectMessage>

@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-export function LoginComponent() {
+export function RegisterComponent() {
   return (
     <div>
-      <LoginButton>Login</LoginButton>
+      <RegisterButton>Register</RegisterButton>
     </div>
   )
 }
 
-const LoginButton = styled.button`
+const RegisterButton = styled.button`
   border: none;
   background-color: inherit;
   color: white;
