@@ -8,7 +8,7 @@ import { Message } from 'interfaces/Message'
 
 export function MainContent() {
   const [message, setMessage] = useState('')
-  const [socketUrl] = useState('ws://127.0.0.1:1234')
+  const [socketUrl] = useState('ws://127.0.0.1:3000/ws')
   const [messageHistory, setMessageHistory] = useState<Message[]>([])
   const { sendMessage, lastMessage } = useWebSocket(socketUrl, {
     onOpen() {
@@ -24,8 +24,8 @@ export function MainContent() {
 
   function onSendMessage() {
     console.log('Im sending')
-
     sendMessage(message)
+    setMessage('')
   }
 
   useEffect(() => {
@@ -42,6 +42,7 @@ export function MainContent() {
       <MainContentHeader></MainContentHeader>
       <MessageBox messageHistory={messageHistory}></MessageBox>
       <InputMessage
+        value={message}
         message={{
           user: { username: 'Leon' },
           date: '19.09.2023',
