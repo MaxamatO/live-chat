@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { LoginComponent } from './LoginComponent'
-import { RegisterComponent } from './RegisterComponent'
+import { LoginButtonComponent } from './LoginButtonComponent'
+import { RegisterButtonComponent } from './RegisterButtonComponent'
 
 export default function SideBarButtonComponent() {
   return (
     <SideBarButtonWrapper>
-      <LoginComponent></LoginComponent>
-      <RegisterComponent></RegisterComponent>
+      <LoginButtonComponent></LoginButtonComponent>
+      <RegisterButtonComponent></RegisterButtonComponent>
     </SideBarButtonWrapper>
   )
 }
