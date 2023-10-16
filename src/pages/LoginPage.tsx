@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 // Create a styled component for the login form container
@@ -8,6 +9,9 @@ export const LoginFormContainer = styled.div`
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 `
 
 // Create a styled component for form elements (e.g., input, button)
@@ -41,13 +45,19 @@ export const Button = styled.button`
     background-color: #0056b3;
   }
 `
+export const GoBack = styled.button``
 
 export const LoginPage = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleLogin = () => {
     // Handle the login logic here
+  }
+
+  const goHome = () => {
+    navigate('/')
   }
 
   return (
@@ -72,6 +82,7 @@ export const LoginPage = () => {
       <FormField>
         <Button onClick={handleLogin}>Login</Button>
       </FormField>
+      <GoBack onClick={goHome}>Go back</GoBack>
     </LoginFormContainer>
   )
 }
